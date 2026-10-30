@@ -1,5 +1,22 @@
-# Welcome to GitHub Desktop!
+# Jacob · 回声
 
-This is your README. READMEs are where you can communicate what your project is and how to use it.
+本地运行的个人问题复盘助手。问题库保存在程序目录下的 `data.json`。
 
-Write your name on line 6, save it, and then head back to GitHub Desktop.
+## 启动
+
+Windows 安装 Python 3 和 Ollama 后，先在 Ollama 中下载默认模型 `qwen3:8b`（命令：`ollama pull qwen3:8b`），然后双击 `启动回声.bat`。浏览器会打开 `http://127.0.0.1:8765`。
+
+启动脚本默认使用 Ollama 地址 `http://127.0.0.1:11434`、模型 `qwen3:8b`。如需修改，在 `启动回声.bat` 中编辑 `OLLAMA_URL` 或 `OLLAMA_MODEL` 两行。
+
+## 支持的复盘指令
+
+- 在问题末尾加 `??`：录入问题。
+- `??`：随机抽一道复盘题。
+- `??A`：随机抽题并查看答案和标签。
+- `??2` / `??A2`：按问题 ID 查询。
+- `A2：答案内容`：录入问题 2 的答案。
+- 答案中的英文双引号可用于指定标签，例如 `A2：我的答案 "学习动机"`。
+
+同一题已有答案时，助手显示旧答案；讨论后用 `！最终答案！` 提交新版本，随后回复“确认覆盖”或“取消覆盖”。旧答案版本会保留在本地数据中。
+
+普通聊天和问题改写由 Ollama 本地模型生成。问题查询、答案录入和标签仍由本地程序按指令规则处理。
